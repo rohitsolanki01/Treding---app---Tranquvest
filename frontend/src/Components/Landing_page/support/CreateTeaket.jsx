@@ -194,7 +194,7 @@ const CreateTicket = () => {
                   <div className="card-body text-center p-4">
                     <i className="fa-solid fa-question-circle text-primary fs-2 mb-3"></i>
                     <h6 className="fw-bold">How to reset password?</h6>
-                    <a href="/" className="stretched-link text-decoration-none">Learn more</a>
+                    <a className="stretched-link text-decoration-none">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const CreateTicket = () => {
                   <div className="card-body text-center p-4">
                     <i className="fa-solid fa-credit-card text-success fs-2 mb-3"></i>
                     <h6 className="fw-bold">Add funds to account?</h6>
-                    <a href="/" className="stretched-link text-decoration-none">Learn more</a>
+                    <a className="stretched-link text-decoration-none">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -214,7 +214,7 @@ const CreateTicket = () => {
                   <div className="card-body text-center p-4">
                     <i className="fa-solid fa-chart-bar text-info fs-2 mb-3"></i>
                     <h6 className="fw-bold">How to place orders?</h6>
-                    <a href="/" className="stretched-link text-decoration-none">Learn more</a>
+                    <a className="stretched-link text-decoration-none">Learn more</a>
                   </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@ const CreateTicket = () => {
                   <div className="card-body text-center p-4">
                     <i className="fa-solid fa-file-alt text-warning fs-2 mb-3"></i>
                     <h6 className="fw-bold">Account statements?</h6>
-                    <a href="/" className="stretched-link text-decoration-none">Learn more</a>
+                    <a className="stretched-link text-decoration-none">Learn more</a>
                   </div>
                 </div>
               </div>

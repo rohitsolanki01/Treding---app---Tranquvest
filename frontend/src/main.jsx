@@ -17,7 +17,7 @@ import PrivacyPolicy from"./Components/PrivacyPolicy.jsx"
 import Disclaimer from "./Components/Disclaimer.jsx"
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import TermsAndConditions from './Components/TermsAndConditions.jsx'
-import { AuthProvider } from './Components/Landing_page/contexts/AuthContext'; // Add this import
+import { AuthProvider } from './Components/Landing_page/contexts/AuthContext'; 
 
 createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId="421864464984-611fn7f9a8vmoqpevfncba4chml6h1e5.apps.googleusercontent.com">
