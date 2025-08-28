@@ -1,0 +1,222 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
+    </filter>
+    
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  
+  <!-- Desktop Dashboard -->
+  <g id="desktop-dashboard">
+    <!-- Main container -->
+    <rect x="20" y="20" width="760" height="580" rx="16" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1" filter="url(#shadow)"/>
+    
+    <!-- Header bar -->
+    <rect x="20" y="20" width="760" height="60" rx="16" fill="url(#headerGradient)"/>
+    <rect x="20" y="60" width="760" height="16" fill="url(#headerGradient)"/>
+    
+    <!-- Browser controls -->
+    <circle cx="45" cy="45" r="6" fill="#ef4444"/>
+    <circle cx="65" cy="45" r="6" fill="#f59e0b"/>
+    <circle cx="85" cy="45" r="6" fill="#10b981"/>
+    
+    <!-- URL bar -->
+    <rect x="150" y="35" width="350" height="20" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="160" y="47" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="10">https://tranquvest.com/dashboard</text>
+    
+    <!-- Navigation icons -->
+    <circle cx="720" cy="45" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="717" y="49" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="12">?</text>
+    
+    <!-- Market Overview Cards -->
+    <g transform="translate(40,100)">
+      <!-- NIFTY 50 Card -->
+      <rect x="0" y="0" width="180" height="80" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="15" y="20" fill="#64748b" font-family="Arial, sans-serif" font-size="11" font-weight="500">NIFTY 50</text>
+      <text x="15" y="40" fill="#1e293b" font-family="Arial, sans-serif" font-size="20" font-weight="bold">24,350.25</text>
+      <text x="15" y="58" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+0.42%</text>
+      <path d="M120,25 L135,35 L150,30 L165,40" stroke="#10b981" stroke-width="2" fill="none"/>
+    </g>
+    
+    <!-- Stats Cards -->
+    <g transform="translate(250,100)">
+      <rect x="0" y="0" width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="15" y="20" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Portfolio</text>
+      <text x="15" y="40" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">₹2.4L</text>
+      <text x="15" y="58" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+12.5%</text>
+    </g>
+    
+    <g transform="translate(390,100)">
+      <rect x="0" y="0" width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="15" y="20" fill="#64748b" font-family="Arial, sans-serif" font-size="11">PL Today</text>
+      <text x="15" y="40" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">₹8,450</text>
+      <text x="15" y="58" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+3.2%</text>
+    </g>
+    
+    <g transform="translate(530,100)">
+      <rect x="0" y="0" width="120" height="80" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="15" y="20" fill="#64748b" font-family="Arial, sans-serif" font-size="11">Available</text>
+      <text x="15" y="40" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">₹45.2K</text>
+      <text x="15" y="58" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Margin</text>
+    </g>
+    
+    <!-- Watchlist Section -->
+    <g transform="translate(40,200)">
+      <text x="0" y="20" fill="#1e293b" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Watchlist</text>
+      
+      <!-- Stock rows -->
+      <rect x="0" y="30" width="720" height="40" rx="8" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+      <text x="15" y="48" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="500">RELIANCE</text>
+      <text x="15" y="60" fill="#64748b" font-family="Arial, sans-serif" font-size="11">NSE</text>
+      <text x="580" y="48" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">₹2,485.75</text>
+      <text x="650" y="48" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+1.25%</text>
+      <rect x="680" y="40" width="25" height="15" rx="3" fill="url(#greenGradient)"/>
+      <text x="687" y="50" fill="white" font-family="Arial, sans-serif" font-size="9">BUY</text>
+      
+      <rect x="0" y="80" width="720" height="40" rx="8" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+      <text x="15" y="98" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="500">TCS</text>
+      <text x="15" y="110" fill="#64748b" font-family="Arial, sans-serif" font-size="11">NSE</text>
+      <text x="580" y="98" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">₹3,756.30</text>
+      <text x="650" y="98" fill="#ef4444" font-family="Arial, sans-serif" font-size="12">-0.85%</text>
+      <rect x="680" y="90" width="25" height="15" rx="3" fill="url(#redGradient)"/>
+      <text x="686" y="100" fill="white" font-family="Arial, sans-serif" font-size="9">SELL</text>
+      
+      <rect x="0" y="130" width="720" height="40" rx="8" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+      <text x="15" y="148" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="500">INFY</text>
+      <text x="15" y="160" fill="#64748b" font-family="Arial, sans-serif" font-size="11">NSE</text>
+      <text x="580" y="148" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">₹1,547.65</text>
+      <text x="650" y="148" fill="#10b981" font-family="Arial, sans-serif" font-size="12">+2.15%</text>
+      <rect x="680" y="140" width="25" height="15" rx="3" fill="url(#greenGradient)"/>
+      <text x="687" y="150" fill="white" font-family="Arial, sans-serif" font-size="9">BUY</text>
+    </g>
+    
+    <!-- Chart Section -->
+    <g transform="translate(40,400)">
+      <text x="0" y="20" fill="#1e293b" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Portfolio Performance</text>
+      <rect x="0" y="30" width="720" height="150" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Chart area -->
+      <path d="M30,140 L80,120 L130,110 L180,125 L230,105 L280,95 L330,100 L380,85 L430,90 L480,75 L530,80 L580,70 L630,65 L680,60" 
+            stroke="url(#blueGradient)" stroke-width="3" fill="none"/>
+      <path d="M30,180 L80,160 L130,150 L180,165 L230,145 L280,135 L330,140 L380,125 L430,130 L480,115 L530,120 L580,110 L630,105 L680,100 L680,180 L30,180 Z" 
+            fill="url(#chartGradient)"/>
+      
+      <!-- Chart dots -->
+      <circle cx="680" cy="60" r="4" fill="url(#blueGradient)">
+        <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="580" cy="70" r="3" fill="url(#blueGradient)" opacity="0.7"/>
+      <circle cx="480" cy="75" r="3" fill="url(#blueGradient)" opacity="0.7"/>
+    </g>
+  </g>
+  
+  <!-- Mobile App -->
+  <g id="mobile-app" transform="translate(820,180)">
+    <!-- Phone frame -->
+    <rect x="0" y="0" width="200" height="380" rx="25" fill="#1f2937" filter="url(#shadow)"/>
+    <rect x="8" y="8" width="184" height="364" rx="20" fill="url(#cardGradient)"/>
+    
+    <!-- Screen notch -->
+    <rect x="70" y="8" width="60" height="15" rx="8" fill="#1f2937"/>
+    
+    <!-- Status bar -->
+    <text x="20" y="38" fill="#1e293b" font-family="Arial, sans-serif" font-size="10" font-weight="500">9:41</text>
+    <circle cx="160" cy="35" r="2" fill="#10b981"/>
+    <rect x="170" y="32" width="12" height="6" rx="1" fill="#64748b"/>
+    
+    <!-- App header -->
+    <rect x="8" y="45" width="184" height="50" rx="0" fill="url(#headerGradient)"/>
+    <text x="20" y="65" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Tranquvest</text>
+    <circle cx="165" cy="65" r="8" fill="rgba(255,255,255,0.2)"/>
+    <text x="162" y="69" fill="white" font-family="Arial, sans-serif" font-size="10">Settings</text>
+    
+    <!-- Balance card -->
+    <rect x="20" y="110" width="160" height="60" rx="12" fill="url(#cardGradient)" filter="url(#cardShadow)" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="30" y="125" fill="#64748b" font-family="Arial, sans-serif" font-size="9">AVAILABLE BALANCE</text>
+    <text x="30" y="145" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">₹1,24,567</text>
+    <text x="30" y="160" fill="#10b981" font-family="Arial, sans-serif" font-size="10">+₹12,450 today</text>
+    
+    <!-- Action buttons -->
+    <rect x="20" y="185" width="75" height="30" rx="6" fill="url(#greenGradient)"/>
+    <text x="45" y="202" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">BUY</text>
+    
+    <rect x="105" y="185" width="75" height="30" rx="6" fill="url(#redGradient)"/>
+    <text x="142" y="202" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">SELL</text>
+    
+    <!-- Holdings section -->
+    <text x="20" y="235" fill="#1e293b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Holdings</text>
+    
+    <rect x="20" y="245" width="160" height="35" rx="6" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <text x="30" y="258" fill="#1e293b" font-family="Arial, sans-serif" font-size="11" font-weight="500">RELIANCE</text>
+    <text x="30" y="270" fill="#64748b" font-family="Arial, sans-serif" font-size="9">5 qty</text>
+    <text x="140" y="258" fill="#1e293b" font-family="Arial, sans-serif" font-size="11" font-weight="bold">₹12,428</text>
+    <text x="140" y="270" fill="#10b981" font-family="Arial, sans-serif" font-size="9">+2.45%</text>
+    
+    <rect x="20" y="285" width="160" height="35" rx="6" fill="url(#cardGradient)" filter="url(#cardShadow)"/>
+    <text x="30" y="298" fill="#1e293b" font-family="Arial, sans-serif" font-size="11" font-weight="500">TCS</text>
+    <text x="30" y="310" fill="#64748b" font-family="Arial, sans-serif" font-size="9">3 qty</text>
+    <text x="140" y="298" fill="#1e293b" font-family="Arial, sans-serif" font-size="11" font-weight="bold">₹11,269</text>
+    <text x="140" y="310" fill="#ef4444" font-family="Arial, sans-serif" font-size="9">-1.25%</text>
+    
+    <!-- Bottom navigation -->
+    <rect x="8" y="340" width="184" height="32" rx="0" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <circle cx="40" cy="356" r="6" fill="url(#blueGradient)"/>
+    <circle cx="80" cy="356" r="6" fill="#94a3b8"/>
+    <circle cx="120" cy="356" r="6" fill="#94a3b8"/>
+    <circle cx="160" cy="356" r="6" fill="#94a3b8"/>
+  </g>
+  
+  <!-- Floating connection dots -->
+  <g opacity="0.6">
+    <circle cx="780" cy="300" r="4" fill="url(#blueGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="790" cy="320" r="3" fill="url(#blueGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="340" r="3" fill="url(#blueGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#cbd5e1" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+    <path d="M760,350 Q780,330 820,320"/>
+    <path d="M750,400 Q770,380 810,360"/>
+  </g>
+</svg>

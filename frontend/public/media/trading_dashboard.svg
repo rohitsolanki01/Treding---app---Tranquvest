@@ -1,0 +1,360 @@
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Light Theme Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="successGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="warningGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <!-- Light Theme Filters -->
+    <filter id="shadowLight" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    
+    <filter id="shadowMedium" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    
+    <filter id="shadowHeavy" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="lightGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#e2e8f0" stroke-width="0.5" opacity="0.6"/>
+    </pattern>
+  </defs>
+  <rect width="1400" height="800" fill="url(#lightGrid)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1400" height="80" fill="#ffffff" filter="url(#shadowLight)"/>
+  <rect x="0" y="78" width="1400" height="2" fill="url(#primaryGradient)"/>
+  
+  <!-- TRANQUVEST Logo/Brand -->
+  <g transform="translate(60, 25)">
+    <rect x="0" y="0" width="8" height="30" fill="url(#primaryGradient)" rx="2"/>
+    <rect x="12" y="8" width="8" height="22" fill="url(#successGradient)" rx="2"/>
+    <rect x="24" y="15" width="8" height="15" fill="url(#warningGradient)" rx="2"/>
+    <rect x="36" y="5" width="8" height="25" fill="url(#purpleGradient)" rx="2"/>
+    <text x="55" y="22" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">TRANQUVEST</text>
+    <text x="55" y="40" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Trading Platform</text>
+  </g>
+  
+  <!-- Time & Status -->
+  <g transform="translate(1180, 25)">
+    <circle cx="0" cy="15" r="5" fill="#10b981"/>
+    <text x="15" y="12" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#10b981">LIVE</text>
+    <text x="15" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">14:23:45 UTC</text>
+  </g>
+  
+  <!-- User Avatar -->
+  <g transform="translate(1320, 25)">
+    <circle cx="0" cy="15" r="22" fill="url(#primaryGradient)" filter="url(#shadowLight)"/>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">D</text>
+  </g>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="80" width="300" height="720" fill="#ffffff" filter="url(#shadowMedium)"/>
+  <rect x="298" y="80" width="2" height="720" fill="#e2e8f0"/>
+  
+  <!-- Enhanced Sidebar Menu -->
+  <g id="enhanced-menu">
+    <!-- Active Dashboard -->
+    <rect x="20" y="120" width="260" height="50" rx="12" fill="url(#primaryGradient)" opacity="0.1" stroke="url(#primaryGradient)" stroke-width="1"/>
+    <rect x="25" y="125" width="4" height="40" fill="url(#primaryGradient)" rx="2"/>
+    <rect x="45" y="135" width="20" height="20" fill="none" stroke="#2563eb" stroke-width="2" rx="3"/>
+    <rect x="49" y="139" width="12" height="12" fill="#2563eb" opacity="0.2"/>
+    <text x="75" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Dashboard</text>
+    
+    <!-- Trading -->
+    <rect x="45" y="195" width="20" height="20" fill="none" stroke="#64748b" stroke-width="2" rx="3"/>
+    <circle cx="51" cy="201" r="2" fill="#64748b"/>
+    <circle cx="59" cy="201" r="2" fill="#64748b"/>
+    <circle cx="55" cy="209" r="2" fill="#64748b"/>
+    <text x="75" y="210" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Trading</text>
+    
+    <!-- Portfolio -->
+    <rect x="45" y="255" width="20" height="20" fill="none" stroke="#64748b" stroke-width="2" rx="3"/>
+    <path d="M 49 269 L 55 263 L 61 269" fill="none" stroke="#64748b" stroke-width="2"/>
+    <text x="75" y="270" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Portfolio</text>
+    
+    <!-- Analytics -->
+    <rect x="45" y="315" width="20" height="20" fill="none" stroke="#64748b" stroke-width="2" rx="3"/>
+    <path d="M 49 327 L 51 323 L 55 329 L 59 321 L 61 327" fill="none" stroke="#64748b" stroke-width="2"/>
+    <text x="75" y="330" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Analytics</text>
+    
+    <!-- Settings -->
+    <circle cx="55" cy="385" r="8" fill="none" stroke="#64748b" stroke-width="2"/>
+    <circle cx="55" cy="385" r="3" fill="#64748b"/>
+    <text x="75" y="390" font-family="Arial, sans-serif" font-size="16" fill="#64748b">Settings</text>
+    
+    <!-- Account Summary -->
+    <rect x="30" y="450" width="240" height="120" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="50" y="475" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#1e293b">Account Summary</text>
+    <text x="50" y="495" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Available Balance</text>
+    <text x="50" y="515" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#10b981">$247,890</text>
+    <text x="50" y="535" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Margin Used</text>
+    <text x="50" y="555" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#f59e0b">$89,340</text>
+  </g>
+  
+  <!-- Main Content Area -->
+  <g id="main-content">
+    <!-- Enhanced Metrics Cards -->
+    <g id="premium-metrics">
+      <!-- Total Balance -->
+      <rect x="340" y="120" width="280" height="140" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+      <rect x="340" y="120" width="280" height="4" rx="2" fill="url(#primaryGradient)"/>
+      <text x="365" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b">TOTAL BALANCE</text>
+      <text x="365" y="185" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1e293b">$3.847M</text>
+      <text x="365" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#10b981">↗ +18.7%</text>
+      <text x="420" y="210" font-family="Arial, sans-serif" font-size="14" fill="#64748b">24h change</text>
+      
+      <!-- Floating profit indicator -->
+      <rect x="520" y="230" width="80" height="25" rx="12" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+      <text x="560" y="247" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">+$124.8K</text>
+      
+      <!-- PnL -->
+      <rect x="650" y="120" width="280" height="140" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+      <rect x="650" y="120" width="280" height="4" rx="2" fill="url(#successGradient)"/>
+      <text x="675" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b">24H PnL</text>
+      <text x="675" y="185" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1e293b">$127.3K</text>
+      <text x="675" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#10b981">↗ +24.1%</text>
+      <text x="730" y="210" font-family="Arial, sans-serif" font-size="14" fill="#64748b">profit margin</text>
+      
+      <!-- Positions -->
+      <rect x="960" y="120" width="200" height="140" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+      <rect x="960" y="120" width="200" height="4" rx="2" fill="url(#warningGradient)"/>
+      <text x="985" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b">POSITIONS</text>
+      <text x="985" y="185" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1e293b">247</text>
+      <text x="985" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#f59e0b">↗ +12</text>
+      <text x="1025" y="210" font-family="Arial, sans-serif" font-size="14" fill="#64748b">active</text>
+      
+      <!-- Win Rate -->
+      <rect x="1190" y="120" width="190" height="140" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+      <rect x="1190" y="120" width="190" height="4" rx="2" fill="url(#purpleGradient)"/>
+      <text x="1215" y="150" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#64748b">WIN RATE</text>
+      <text x="1215" y="185" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1e293b">87.2%</text>
+      <text x="1215" y="210" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#8b5cf6">↗ +3.1%</text>
+      <text x="1265" y="210" font-family="Arial, sans-serif" font-size="14" fill="#64748b">this week</text>
+    </g>
+    
+    <!-- Advanced Trading Chart -->
+    <rect x="340" y="290" width="600" height="320" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+    <rect x="340" y="290" width="600" height="4" rx="2" fill="url(#primaryGradient)"/>
+    <text x="365" y="320" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">MARKET OVERVIEW</text>
+    <text x="365" y="340" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Real-time price action</text>
+    
+    <!-- Chart container -->
+    <rect x="365" y="360" width="550" height="220" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Grid lines -->
+    <g stroke="#e2e8f0" stroke-width="1" opacity="0.8">
+      <line x1="365" y1="390" x2="915" y2="390"/>
+      <line x1="365" y1="430" x2="915" y2="430"/>
+      <line x1="365" y1="470" x2="915" y2="470"/>
+      <line x1="365" y1="510" x2="915" y2="510"/>
+      <line x1="365" y1="550" x2="915" y2="550"/>
+    </g>
+    
+    <!-- Y-axis labels -->
+    <text x="355" y="395" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="end">$70K</text>
+    <text x="355" y="435" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="end">$65K</text>
+    <text x="355" y="475" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="end">$60K</text>
+    <text x="355" y="515" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="end">$55K</text>
+    <text x="355" y="555" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="end">$50K</text>
+    
+    <!-- Main trend line -->
+    <path d="M 385 550 Q 420 530 460 520 Q 500 510 540 490 Q 580 470 620 460 Q 660 450 700 440 Q 740 430 780 420 Q 820 410 860 400 Q 880 395 895 390"
+          fill="none" stroke="#2563eb" stroke-width="3"/>
+    
+    <!-- Secondary trend -->
+    <path d="M 385 560 Q 420 540 460 535 Q 500 530 540 520 Q 580 510 620 500 Q 660 490 700 480 Q 740 470 780 460 Q 820 450 860 440 Q 880 435 895 430"
+          fill="none" stroke="#10b981" stroke-width="2" opacity="0.8"/>
+    
+    <!-- Area fills -->
+    <path d="M 385 550 Q 420 530 460 520 Q 500 510 540 490 Q 580 470 620 460 Q 660 450 700 440 Q 740 430 780 420 Q 820 410 860 400 Q 880 395 895 390 L 895 570 L 385 570 Z"
+          fill="url(#chartGradient)"/>
+    
+    <!-- Candlestick elements -->
+    <g fill="#2563eb" opacity="0.7">
+      <rect x="430" y="515" width="6" height="25" rx="1"/>
+      <rect x="470" y="505" width="6" height="35" rx="1"/>
+      <rect x="510" y="485" width="6" height="25" rx="1"/>
+      <rect x="550" y="475" width="6" height="35" rx="1"/>
+      <rect x="590" y="455" width="6" height="25" rx="1"/>
+      <rect x="630" y="445" width="6" height="35" rx="1"/>
+      <rect x="670" y="435" width="6" height="25" rx="1"/>
+      <rect x="710" y="425" width="6" height="35" rx="1"/>
+      <rect x="750" y="415" width="6" height="25" rx="1"/>
+      <rect x="790" y="405" width="6" height="35" rx="1"/>
+      <rect x="830" y="395" width="6" height="25" rx="1"/>
+    </g>
+    
+    <!-- Chart points -->
+    <circle cx="460" cy="520" r="4" fill="#2563eb"/>
+    <circle cx="540" cy="490" r="4" fill="#2563eb"/>
+    <circle cx="620" cy="460" r="4" fill="#2563eb"/>
+    <circle cx="700" cy="440" r="4" fill="#2563eb"/>
+    <circle cx="780" cy="420" r="4" fill="#2563eb"/>
+    <circle cx="860" cy="400" r="4" fill="#2563eb"/>
+    
+    <!-- Advanced Portfolio Ring -->
+    <rect x="970" y="290" width="200" height="200" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+    <rect x="970" y="290" width="200" height="4" rx="2" fill="url(#purpleGradient)"/>
+    <text x="995" y="320" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">ALLOCATION</text>
+    
+    <!-- Multi-ring chart -->
+    <g transform="translate(1070, 390)">
+      <!-- Outer ring background -->
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+      <!-- BTC -->
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#f7931a" stroke-width="8" 
+              stroke-dasharray="113.1 376.99" transform="rotate(-90)"/>
+      <!-- ETH -->
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#627eea" stroke-width="8"
+              stroke-dasharray="94.25 376.99" stroke-dashoffset="-113.1" transform="rotate(-90)"/>
+      <!-- Others -->
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#2563eb" stroke-width="8"
+              stroke-dasharray="75.4 376.99" stroke-dashoffset="-207.35" transform="rotate(-90)"/>
+      
+      <!-- Inner ring background -->
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+      <!-- Stocks -->
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#10b981" stroke-width="6"
+              stroke-dasharray="62.83 251.33" transform="rotate(-90)"/>
+      <!-- Bonds -->
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#8b5cf6" stroke-width="6"
+              stroke-dasharray="50.27 251.33" stroke-dashoffset="-62.83" transform="rotate(-90)"/>
+      
+      <!-- Center display -->
+      <circle cx="0" cy="0" r="25" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="0" y="-5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b" text-anchor="middle">$3.8M</text>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">TOTAL</text>
+    </g>
+    
+    <!-- Trading Activity Feed -->
+    <rect x="1200" y="290" width="180" height="320" rx="20" fill="url(#cardGradient)" filter="url(#shadowMedium)"/>
+    <rect x="1200" y="290" width="180" height="4" rx="2" fill="url(#successGradient)"/>
+    <text x="1225" y="320" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">ACTIVITY</text>
+    
+    <!-- Activity items with light styling -->
+    <g id="activity-feed">
+      <!-- Trade 1 -->
+      <rect x="1220" y="340" width="140" height="40" rx="8" fill="#10b981" opacity="0.08" stroke="#10b981" stroke-width="1"/>
+      <circle cx="1235" cy="360" r="6" fill="#10b981"/>
+      <text x="1250" y="355" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b">BTC/USDT</text>
+      <text x="1250" y="370" font-family="Arial, sans-serif" font-size="10" fill="#10b981">+$24.5K • BUY</text>
+      
+      <!-- Trade 2 -->
+      <rect x="1220" y="390" width="140" height="40" rx="8" fill="#ef4444" opacity="0.08" stroke="#ef4444" stroke-width="1"/>
+      <circle cx="1235" cy="410" r="6" fill="#ef4444"/>
+      <text x="1250" y="405" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b">ETH/USDT</text>
+      <text x="1250" y="420" font-family="Arial, sans-serif" font-size="10" fill="#ef4444">-$12.3K • SELL</text>
+      
+      <!-- Trade 3 -->
+      <rect x="1220" y="440" width="140" height="40" rx="8" fill="#2563eb" opacity="0.08" stroke="#2563eb" stroke-width="1"/>
+      <circle cx="1235" cy="460" r="6" fill="#2563eb"/>
+      <text x="1250" y="455" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b">AAPL</text>
+      <text x="1250" y="470" font-family="Arial, sans-serif" font-size="10" fill="#2563eb">+$8.7K • BUY</text>
+      
+      <!-- Trade 4 -->
+      <rect x="1220" y="490" width="140" height="40" rx="8" fill="#8b5cf6" opacity="0.08" stroke="#8b5cf6" stroke-width="1"/>
+      <circle cx="1235" cy="510" r="6" fill="#8b5cf6"/>
+      <text x="1250" y="505" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b">NVDA</text>
+      <text x="1250" y="520" font-family="Arial, sans-serif" font-size="10" fill="#8b5cf6">+$15.2K • BUY</text>
+      
+      <!-- Trade 5 -->
+      <rect x="1220" y="540" width="140" height="40" rx="8" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
+      <circle cx="1235" cy="560" r="6" fill="#f59e0b"/>
+      <text x="1250" y="555" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b">GOLD</text>
+      <text x="1250" y="570" font-family="Arial, sans-serif" font-size="10" fill="#f59e0b">+$6.8K • BUY</text>
+    </g>
+    
+    <!-- Enhanced Action Buttons -->
+    <g id="action-buttons">
+      <rect x="340" y="640" width="180" height="55" rx="15" fill="url(#primaryGradient)" filter="url(#shadowLight)"/>
+      <text x="430" y="672" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">EXECUTE TRADE</text>
+      
+      <rect x="540" y="640" width="180" height="55" rx="15" fill="url(#successGradient)" filter="url(#shadowLight)"/>
+      <text x="630" y="672" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">ANALYZE MARKET</text>
+      
+      <rect x="740" y="640" width="180" height="55" rx="15" fill="url(#warningGradient)" filter="url(#shadowLight)"/>
+      <text x="830" y="672" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">PORTFOLIO SYNC</text>
+    </g>
+    
+    <!-- Bottom market ticker -->
+    <rect x="340" y="720" width="1040" height="50" rx="15" fill="#ffffff" filter="url(#shadowLight)" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="340" y="720" width="1040" height="3" fill="url(#primaryGradient)"/>
+    
+    <!-- Scrolling ticker data -->
+    <g id="ticker">
+      <text x="360" y="740" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">BTC</text>
+      <text x="360" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">$67,423</text>
+      <text x="430" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#10b981">+2.4%</text>
+      
+       <text x="500" y="740" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">ETH</text>
+       <text x="500" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">$4,213</text>
+       <text x="570" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#ef4444">-1.2%</text>
+
+       <text x="640" y="740" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">AAPL</text>
+       <text x="640" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">$187.65</text>
+       <text x="710" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#10b981">+0.9%</text>
+
+       <text x="780" y="740" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">NVDA</text>
+       <text x="780" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">$973.44</text>
+       <text x="850" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#10b981">+1.5%</text>
+
+       <text x="920" y="740" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748b">GOLD</text>
+       <text x="920" y="755" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">$2,340</text>
+       <text x="990" y="755" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#f59e0b">+0.6%</text>
+     </g>
+   </g>
+</svg>

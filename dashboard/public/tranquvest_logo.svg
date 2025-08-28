@@ -1,0 +1,80 @@
+<svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Outer circle -->
+    <circle cx="30" cy="30" r="28" fill="url(#primaryGradient)" filter="url(#shadow)"/>
+    
+    <!-- Inner design - Trading chart with upward trend -->
+    <g transform="translate(30, 30)">
+      <!-- Chart lines -->
+      <path d="M -15 8 L -8 2 L -2 -5 L 5 -8 L 12 -12 L 18 -15" 
+            stroke="white" 
+            stroke-width="2.5" 
+            fill="none" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+      
+      <!-- Data points -->
+      <circle cx="-15" cy="8" r="2" fill="white"/>
+      <circle cx="-8" cy="2" r="2" fill="white"/>
+      <circle cx="-2" cy="-5" r="2" fill="white"/>
+      <circle cx="5" cy="-8" r="2" fill="white"/>
+      <circle cx="12" cy="-12" r="2" fill="white"/>
+      <circle cx="18" cy="-15" r="2" fill="url(#accentGradient)"/>
+      
+      <!-- Upward arrow -->
+      <path d="M 15 -18 L 18 -15 L 21 -18" 
+            stroke="url(#accentGradient)" 
+            stroke-width="2" 
+            fill="none" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Subtle highlight -->
+    <circle cx="30" cy="30" r="28" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="85" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1f2937">
+    Tranqu<tspan fill="url(#primaryGradient)">vest</tspan>
+  </text>
+  
+  <!-- Decorative element -->
+  <rect x="85" y="50" width="60" height="2" fill="url(#accentGradient)" rx="1"/>
+  
+  <!-- Subtle financial icons -->
+  <g transform="translate(250, 25)" opacity="0.6">
+    <path d="M 0 10 L 3 7 L 6 4 L 9 1 L 12 -2" stroke="url(#accentGradient)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <circle cx="12" cy="-2" r="1" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="85" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1f2937">
+    Tranqu<tspan fill="url(#primaryGradient)">vest</tspan>
+  </text>
+</svg>

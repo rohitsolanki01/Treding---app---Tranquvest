@@ -1,0 +1,127 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a56;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffb347;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lightOrangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd4a3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffcc9a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="grayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#d1d5db;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="6" flood-opacity="0.2"/>
+    </filter>
+    
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background geometric shapes -->
+  <g opacity="0.6">
+    <!-- Large background rectangles -->
+    <rect x="50" y="80" width="200" height="150" rx="8" fill="url(#grayGradient)" filter="url(#softShadow)" transform="rotate(-5 150 155)"/>
+    <rect x="450" y="50" width="180" height="120" rx="8" fill="url(#grayGradient)" filter="url(#softShadow)" transform="rotate(8 540 110)"/>
+    <rect x="600" y="200" width="140" height="100" rx="8" fill="url(#grayGradient)" filter="url(#softShadow)" transform="rotate(-3 670 250)"/>
+    
+    <!-- Abstract geometric elements -->
+    <polygon points="100,50 150,30 180,80 130,100" fill="url(#grayGradient)" opacity="0.5" transform="rotate(15 140 65)"/>
+    <polygon points="650,350 700,330 730,380 680,400" fill="url(#grayGradient)" opacity="0.5" transform="rotate(-10 690 365)"/>
+  </g>
+  
+  <!-- Main orange rectangle -->
+  <rect x="180" y="120" width="300" height="160" rx="12" fill="url(#orangeGradient)" filter="url(#shadow)"/>
+  
+  <!-- Lighter orange overlay rectangle -->
+  <rect x="160" y="140" width="120" height="80" rx="8" fill="url(#lightOrangeGradient)" filter="url(#softShadow)"/>
+  
+  <!-- Blue accent line -->
+  <rect x="380" y="90" width="6" height="80" rx="3" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  
+  <!-- Blue accent circle -->
+  <circle cx="385" cy="190" r="8" fill="url(#blueGradient)" filter="url(#shadow)"/>
+  
+  <!-- Main Varsity text -->
+  <text x="420" y="220" fill="url(#blueGradient)" font-family="Georgia, serif" font-size="64" font-weight="bold" font-style="italic" filter="url(#shadow)">Varsity</text>
+  
+  <!-- Decorative dot pattern -->
+  <g fill="url(#blueGradient)" opacity="0.8">
+    <!-- Dot grid pattern -->
+    <circle cx="120" cy="320" r="4"/>
+    <circle cx="140" cy="320" r="4"/>
+    <circle cx="160" cy="320" r="4"/>
+    <circle cx="180" cy="320" r="4"/>
+    <circle cx="200" cy="320" r="4"/>
+    <circle cx="220" cy="320" r="4"/>
+    
+    <circle cx="120" cy="340" r="4"/>
+    <circle cx="140" cy="340" r="4"/>
+    <circle cx="160" cy="340" r="4"/>
+    <circle cx="180" cy="340" r="4"/>
+    <circle cx="200" cy="340" r="4"/>
+    <circle cx="220" cy="340" r="4"/>
+    
+    <circle cx="120" cy="360" r="4"/>
+    <circle cx="140" cy="360" r="4"/>
+    <circle cx="160" cy="360" r="4"/>
+    <circle cx="180" cy="360" r="4"/>
+    <circle cx="200" cy="360" r="4"/>
+    <circle cx="220" cy="360" r="4"/>
+    
+    <circle cx="120" cy="380" r="4"/>
+    <circle cx="140" cy="380" r="4"/>
+    <circle cx="160" cy="380" r="4"/>
+    <circle cx="180" cy="380" r="4"/>
+    <circle cx="200" cy="380" r="4"/>
+    <circle cx="220" cy="380" r="4"/>
+    
+    <circle cx="120" cy="400" r="4"/>
+    <circle cx="140" cy="400" r="4"/>
+    <circle cx="160" cy="400" r="4"/>
+    <circle cx="180" cy="400" r="4"/>
+    <circle cx="200" cy="400" r="4"/>
+    <circle cx="220" cy="400" r="4"/>
+  </g>
+  
+  <!-- Additional decorative elements -->
+  <g opacity="0.4">
+    <!-- Small accent rectangles -->
+    <rect x="500" y="300" width="40" height="20" rx="4" fill="url(#orangeGradient)" transform="rotate(12 520 310)"/>
+    <rect x="550" y="280" width="30" height="15" rx="3" fill="url(#blueGradient)" transform="rotate(-8 565 287)"/>
+    
+    <!-- Floating geometric shapes -->
+    <polygon points="700,120 720,110 730,130 710,140" fill="url(#orangeGradient)" opacity="0.6"/>
+    <circle cx="80" cy="100" r="12" fill="url(#blueGradient)" opacity="0.3"/>
+    
+    <!-- Modern line accents -->
+    <line x1="600" y1="350" x2="680" y2="340" stroke="url(#blueGradient)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <line x1="100" y1="260" x2="140" y2="250" stroke="url(#orangeGradient)" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  
+  <!-- Subtle animated elements -->
+  <g opacity="0.6">
+    <circle cx="650" cy="180" r="2" fill="url(#blueGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="180" r="2" fill="url(#orangeGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="550" cy="400" r="2" fill="url(#blueGradient)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

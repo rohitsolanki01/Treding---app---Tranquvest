@@ -1,0 +1,215 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Financial Gradient Definitions -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="bullGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <linearGradient id="bearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <radialGradient id="glowEffect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Filters -->
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Grid Pattern -->
+    <pattern id="tradingGrid" patternUnits="userSpaceOnUse" width="50" height="50">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+    
+    <!-- Chart Pattern -->
+    <pattern id="chartPattern" patternUnits="userSpaceOnUse" width="100" height="50">
+      <polyline points="0,25 20,15 40,30 60,10 80,20 100,5" fill="none" stroke="#10b981" stroke-width="1" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#mainGradient)"/>
+  
+  <!-- Trading Grid Overlay -->
+  <rect width="1200" height="800" fill="url(#tradingGrid)"/>
+  
+  <!-- Financial Chart Background Elements -->
+  <g opacity="0.15">
+    <rect x="0" y="400" width="1200" height="200" fill="url(#chartPattern)"/>
+    <rect x="0" y="200" width="1200" height="200" fill="url(#chartPattern)" transform="scale(1,-1) translate(0,-600)"/>
+  </g>
+  
+  <!-- Floating Currency Symbols -->
+  <g opacity="0.2">
+    <!-- Dollar Symbol -->
+    <text x="150" y="200" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#fbbf24" opacity="0.4">$</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-15;0,0" dur="6s" repeatCount="indefinite"/>
+    
+    <!-- Euro Symbol -->
+    <text x="900" y="150" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#10b981" opacity="0.3">€</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,20;0,0" dur="8s" repeatCount="indefinite"/>
+    
+    <!-- Pound Symbol -->
+    <text x="1050" y="600" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#06b6d4" opacity="0.35">£</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,-12;0,0" dur="5s" repeatCount="indefinite"/>
+    
+    <!-- Yen Symbol -->
+    <text x="50" y="650" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#f59e0b" opacity="0.3">¥</text>
+    <animateTransform attributeName="transform" type="translate" values="0,0;0,18;0,0" dur="7s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Chart Line Animations -->
+  <g opacity="0.4">
+    <!-- Bull Market Line -->
+    <polyline points="0,500 200,450 400,350 600,300 800,250 1000,200 1200,150" fill="none" stroke="#10b981" stroke-width="3" opacity="0.6">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0;0,1000" dur="10s" repeatCount="indefinite"/>
+    </polyline>
+    
+    <!-- Volatile Market Line -->
+    <polyline points="0,600 150,550 300,580 450,520 600,560 750,500 900,540 1050,480 1200,520" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.5">
+      <animate attributeName="stroke-dasharray" values="0,800;800,0;0,800" dur="12s" repeatCount="indefinite"/>
+    </polyline>
+  </g>
+  
+  <!-- Floating Financial Icons -->
+  <g opacity="0.3">
+    <!-- Stock Arrow Up -->
+    <polygon points="100,400 120,370 140,400 130,400 130,420 110,420 110,400" fill="#10b981">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-20;0,0" dur="4s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Stock Arrow Down -->
+    <polygon points="1000,450 1020,480 1040,450 1030,450 1030,430 1010,430 1010,450" fill="#ef4444">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,15;0,0" dur="6s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Candlestick Representations -->
+    <rect x="300" y="300" width="8" height="60" fill="#10b981" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,-10;0,0" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="304" y1="280" x2="304" y2="380" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+    
+    <rect x="800" y="400" width="8" height="40" fill="#ef4444" opacity="0.6">
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,12;0,0" dur="7s" repeatCount="indefinite"/>
+    </rect>
+    <line x1="804" y1="390" x2="804" y2="450" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Digital Network Nodes -->
+  <g opacity="0.4">
+    <!-- Connection Lines -->
+    <line x1="200" y1="250" x2="400" y2="300" stroke="#06b6d4" stroke-width="2" opacity="0.3"/>
+    <line x1="400" y1="300" x2="600" y2="200" stroke="#06b6d4" stroke-width="2" opacity="0.3"/>
+    <line x1="600" y1="200" x2="800" y2="350" stroke="#06b6d4" stroke-width="2" opacity="0.3"/>
+    <line x1="800" y1="350" x2="1000" y2="280" stroke="#06b6d4" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Network Nodes -->
+    <circle cx="200" cy="250" r="6" fill="#06b6d4" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="300" r="8" fill="#10b981" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="200" r="7" fill="#f59e0b" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.4;0.6" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="350" r="5" fill="#8b5cf6" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.2;0.5" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="280" r="9" fill="#ef4444" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.1;0.4" dur="7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Market Data Bars -->
+  <g opacity="0.25">
+    <rect x="500" y="600" width="15" height="80" fill="#10b981">
+      <animate attributeName="height" values="80;120;80" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="600;560;600" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="520" y="620" width="15" height="60" fill="#f59e0b">
+      <animate attributeName="height" values="60;100;60" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="620;580;620" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="540" y="640" width="15" height="40" fill="#ef4444">
+      <animate attributeName="height" values="40;80;40" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="640;600;640" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="560" y="610" width="15" height="70" fill="#06b6d4">
+      <animate attributeName="height" values="70;110;70" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="610;570;610" dur="3s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Circular Progress Indicators -->
+  <g opacity="0.3">
+    <circle cx="150" cy="500" r="30" fill="none" stroke="#10b981" stroke-width="4" opacity="0.4"/>
+    <circle cx="150" cy="500" r="30" fill="none" stroke="#10b981" stroke-width="4" stroke-dasharray="60,120" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" values="0 150 500;360 150 500" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="1050" cy="400" r="25" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.4"/>
+    <circle cx="1050" cy="400" r="25" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="40,80" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" values="0 1050 400;-360 1050 400" dur="10s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Blockchain-style Hexagons -->
+  <g opacity="0.2">
+    <polygon points="250,100 275,113 275,139 250,152 225,139 225,113" fill="#8b5cf6" opacity="0.4">
+      <animateTransform attributeName="transform" type="rotate" values="0 250 126;120 250 126;0 250 126" dur="12s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <polygon points="950,550 975,563 975,589 950,602 925,589 925,563" fill="#06b6d4" opacity="0.3">
+      <animateTransform attributeName="transform" type="rotate" values="0 950 576;-120 950 576;0 950 576" dur="10s" repeatCount="indefinite"/>
+    </polygon>
+    
+    <polygon points="700,100 725,113 725,139 700,152 675,139 675,113" fill="#f59e0b" opacity="0.35">
+      <animateTransform attributeName="transform" type="rotate" values="0 700 126;180 700 126;0 700 126" dur="8s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <!-- Subtle Wave Overlays -->
+  <g opacity="0.1">
+    <path d="M0,400 Q300,350 600,400 T1200,400 L1200,0 L0,0 Z" fill="url(#glowEffect)"/>
+    <path d="M0,800 Q300,750 600,800 T1200,800 L1200,600 L0,600 Z" fill="url(#glowEffect)"/>
+  </g>
+  
+  <!-- Trading Platform UI Elements -->
+  <g opacity="0.15">
+    <!-- Mock Trading Interface Lines -->
+    <rect x="50" y="50" width="200" height="2" fill="#10b981" opacity="0.6"/>
+    <rect x="950" y="720" width="200" height="2" fill="#ef4444" opacity="0.6"/>
+    <rect x="50" y="80" width="150" height="2" fill="#f59e0b" opacity="0.5"/>
+    <rect x="1000" y="750" width="150" height="2" fill="#06b6d4" opacity="0.5"/>
+    
+    <!-- Vertical Elements -->
+    <rect x="80" y="50" width="2" height="50" fill="#8b5cf6" opacity="0.4"/>
+    <rect x="1180" y="700" width="2" height="50" fill="#10b981" opacity="0.4"/>
+  </g>
+</svg>
