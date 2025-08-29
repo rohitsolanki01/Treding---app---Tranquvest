@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="fw-semibold mb-3">Account</h6>
             <ul className="list-unstyled">
-              <li><a href="/signup" className="text-muted d-block mb-2">Open an Account</a></li>
+              <li><a href="#" onClick={() => window.location.href = "https://tranquvest-app.onrender.com/signup"} className="text-muted d-block mb-2">Open an Account</a></li>
               <li><a href="/founds" className="text-muted d-block mb-2">Fund Transfer</a></li>
             </ul>
           </div>
