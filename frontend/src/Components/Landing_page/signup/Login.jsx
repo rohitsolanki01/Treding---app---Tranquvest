@@ -14,17 +14,20 @@ const Login = () => {
   
   const { login } = useAuth();
 
+  // ✅ FIXED: Move these to component level and fix the base URL
+  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
-    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}` || `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    // ✅ FIXED: Remove redundant assignment
+    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
 
     setTimeout(() => {
       window.location.href = dashboardUrl;
     }, 1500);
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +39,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-        const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080/api/auth/login";
+      // ✅ FIXED: Now API_BASE_URL is properly defined and accessible
       const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password,
@@ -72,6 +75,7 @@ const Login = () => {
     try {
       const token = credentialResponse.credential;
 
+      // ✅ FIXED: API_BASE_URL is now accessible here
       const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
         token,
       });
@@ -93,6 +97,7 @@ const Login = () => {
     }
   };
 
+  // ... rest of your JSX return stays exactly the same
   return (
     <div className="login-container">
       <div className="login-bg-decoration">
