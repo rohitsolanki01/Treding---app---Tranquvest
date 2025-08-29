@@ -12,13 +12,17 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const { login } = useAuth();
+
+  // ✅ Use environment variables for live deployment
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
     
     setTimeout(() => {
       window.location.href = dashboardUrl;
@@ -43,34 +47,34 @@ const SignUp = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsLoading(true);
-    
+
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/register", {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/register`, {
         email: email.trim(),
         password,
         name: name.trim(),
       });
-      
+
       const { token, user } = res.data;
-      
+
       if (!token || !user) {
         toast.error("Invalid server response");
         return;
       }
-      
+
       login(user, token);
       toast.success(`Welcome ${user.name}! Account created successfully!`);
-      
+
       redirectToDashboard(token, user);
     } catch (err) {
       console.error("Registration error:", err);
       const errorMessage = err.response?.data?.message || "Registration failed";
       toast.error(errorMessage);
-      
+
       if (err.response?.data?.suggestion === "google_login") {
         setTimeout(() => {
           toast.info("💡 Try signing up with Google instead");
@@ -84,8 +88,8 @@ const SignUp = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-      
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+
+      const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
         token,
       });
 
@@ -172,7 +176,7 @@ const SignUp = () => {
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
               >
-                <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
               </button>
             </div>
           </div>
@@ -180,13 +184,15 @@ const SignUp = () => {
           <div className="form-terms">
             <label className="terms-checkbox">
               <input type="checkbox" required />
-              <span>I agree to the <a href="/terms" className="terms-link">Terms & Conditions</a></span>
+              <span>
+                I agree to the <a href="/terms" className="terms-link">Terms & Conditions</a>
+              </span>
             </label>
           </div>
 
-          <button 
-            type="submit" 
-            className={`btn-signup ${isLoading ? 'loading' : ''}`}
+          <button
+            type="submit"
+            className={`btn-signup ${isLoading ? "loading" : ""}`}
             disabled={isLoading}
           >
             {isLoading ? (
@@ -228,8 +234,8 @@ const SignUp = () => {
         </div>
       </div>
 
-      <ToastContainer 
-        position="top-right" 
+      <ToastContainer
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

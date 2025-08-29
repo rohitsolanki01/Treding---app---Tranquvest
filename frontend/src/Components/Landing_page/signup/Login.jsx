@@ -6,19 +6,22 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../contexts/AuthContext";
 import "./Login.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const { login } = useAuth();
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
-    
+    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+
     setTimeout(() => {
       window.location.href = dashboardUrl;
     }, 1500);
@@ -26,7 +29,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!email || !password) {
       toast.error("Please fill in all fields");
       return;
@@ -34,13 +37,13 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post(`${API_URL}/api/auth/login`, {
         email,
         password,
       });
 
       const { token, user } = res.data;
-      
+
       if (!token || !user) {
         toast.error("Invalid server response");
         return;
@@ -48,13 +51,13 @@ const Login = () => {
 
       login(user, token);
       toast.success(`Welcome back, ${user.name}!`);
-      
+
       redirectToDashboard(token, user);
     } catch (err) {
       console.error("Login error:", err);
       const errorMessage = err.response?.data?.message || "Login failed";
       toast.error(errorMessage);
-      
+
       if (err.response?.data?.suggestion === "google_login") {
         setTimeout(() => {
           toast.info("💡 Try logging in with Google instead");
@@ -68,8 +71,8 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-      
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+
+      const res = await axios.post(`${API_URL}/api/auth/google`, {
         token,
       });
 
@@ -92,6 +95,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      {/* UI same as before */}
       <div className="login-bg-decoration">
         <div className="floating-shape shape-1"></div>
         <div className="floating-shape shape-2"></div>
@@ -141,22 +145,14 @@ const Login = () => {
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
               >
-                <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
               </button>
             </div>
           </div>
 
-          <div className="form-options">
-            <label className="remember-me">
-              <input type="checkbox" />
-              <span className="checkmark"></span>
-              Remember me
-            </label>
-          </div>
-
-          <button 
-            type="submit" 
-            className={`btn-login ${isLoading ? 'loading' : ''}`}
+          <button
+            type="submit"
+            className={`btn-login ${isLoading ? "loading" : ""}`}
             disabled={isLoading}
           >
             {isLoading ? (
@@ -197,15 +193,9 @@ const Login = () => {
         </div>
       </div>
 
-      <ToastContainer 
-        position="top-right" 
+      <ToastContainer
+        position="top-right"
         autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
         pauseOnHover
         theme="light"
       />
