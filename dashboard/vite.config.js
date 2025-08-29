@@ -10,6 +10,6 @@ export default defineConfig({
   preview: {
     host: "0.0.0.0",
     port: process.env.PORT || 5173,
-    allowedHosts: ["treding-app-tranquvest-2.onrender.com"], // allow Render domain
+    allowedHosts: ["https://treding-app-tranquvest-3.onrender.com"], // allow Render domain
   }
 })
