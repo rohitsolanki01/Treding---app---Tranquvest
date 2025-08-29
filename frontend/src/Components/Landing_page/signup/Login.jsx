@@ -14,16 +14,11 @@ const Login = () => {
   
   const { login } = useAuth();
 
-  // ✅ CRITICAL FIX: Create a function to get URLs dynamically
-  const getAPIUrl = () => import.meta.env.VITE_API_URL || "http://localhost:8080";
-  const getDashboardUrl = () => import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
-  
-
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `${getDashboardUrl()}/dashboard?token=${encodedToken}&user=${encodedUser}`;
-
+    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    
     setTimeout(() => {
       window.location.href = dashboardUrl;
     }, 1500);
@@ -39,8 +34,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      // ✅ Use function to get URL
-      const res = await axios.post(`${getAPIUrl()}/api/auth/login`, {
+      const res = await axios.post("http://localhost:8080/api/auth/login", {
         email,
         password,
       });
@@ -74,9 +68,8 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-
-      // ✅ Use function to get URL - this will now work
-      const res = await axios.post(`${getAPIUrl()}/api/auth/google`, {
+      
+      const res = await axios.post("http://localhost:8080/api/auth/google", {
         token,
       });
 
@@ -97,10 +90,8 @@ const Login = () => {
     }
   };
 
-  // Rest of your JSX stays the same...
   return (
     <div className="login-container">
-      {/* Your existing JSX */}
       <div className="login-bg-decoration">
         <div className="floating-shape shape-1"></div>
         <div className="floating-shape shape-2"></div>
