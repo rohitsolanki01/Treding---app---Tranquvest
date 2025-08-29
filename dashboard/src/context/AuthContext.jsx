@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 
 // Configure axios base URL for your backend
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 axios.defaults.withCredentials = true;
 
 const AuthContext = createContext();
@@ -90,7 +90,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     delete axios.defaults.headers.common['Authorization'];
     
-    window.location.href = 'http://localhost:5173/login';
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL || 'http://localhost:5173';
+window.location.href = `${FRONTEND_URL}/login`;
   };
 
   const updateUser = (updatedUserData) => {

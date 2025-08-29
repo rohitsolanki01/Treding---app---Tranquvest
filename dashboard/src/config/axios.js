@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8080', 
+   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080',
   timeout: 10000,
   withCredentials: true,
   headers: {
@@ -37,7 +37,8 @@ axiosInstance.interceptors.response.use(
       // Token expired or invalid
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = 'http://localhost:5173/login';
+      const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL || "http://localhost:5174";
+      window.location.href = `${FRONTEND_URL}/login`;
     }
     
     return Promise.reject(error);
