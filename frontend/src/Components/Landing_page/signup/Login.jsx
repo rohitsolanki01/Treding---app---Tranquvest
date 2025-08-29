@@ -14,15 +14,14 @@ const Login = () => {
   
   const { login } = useAuth();
 
-  // ✅ FIXED: Move these to component level and fix the base URL
-  const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
-  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+  // ✅ CRITICAL FIX: Create a function to get URLs dynamically
+  const getAPIUrl = () => import.meta.env.VITE_API_URL || "http://localhost:8080";
+  const getDashboardUrl = () => import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    // ✅ FIXED: Remove redundant assignment
-    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    const dashboardUrl = `${getDashboardUrl()}/dashboard?token=${encodedToken}&user=${encodedUser}`;
 
     setTimeout(() => {
       window.location.href = dashboardUrl;
@@ -39,8 +38,8 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      // ✅ FIXED: Now API_BASE_URL is properly defined and accessible
-      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+      // ✅ Use function to get URL
+      const res = await axios.post(`${getAPIUrl()}/api/auth/login`, {
         email,
         password,
       });
@@ -75,8 +74,8 @@ const Login = () => {
     try {
       const token = credentialResponse.credential;
 
-      // ✅ FIXED: API_BASE_URL is now accessible here
-      const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
+      // ✅ Use function to get URL - this will now work
+      const res = await axios.post(`${getAPIUrl()}/api/auth/google`, {
         token,
       });
 
@@ -97,9 +96,10 @@ const Login = () => {
     }
   };
 
-  // ... rest of your JSX return stays exactly the same
+  // Rest of your JSX stays the same...
   return (
     <div className="login-container">
+      {/* Your existing JSX */}
       <div className="login-bg-decoration">
         <div className="floating-shape shape-1"></div>
         <div className="floating-shape shape-2"></div>
