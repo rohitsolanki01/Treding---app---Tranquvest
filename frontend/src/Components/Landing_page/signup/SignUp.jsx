@@ -15,14 +15,30 @@ const SignUp = () => {
 
   const { login } = useAuth();
 
-  // ✅ Use environment variables for live deployment
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
-  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+  // Dynamic URL functions
+  const getAPIUrl = () => {
+    const url = import.meta.env.VITE_API_URL || "http://localhost:8080";
+    console.log('🔄 API URL:', url);
+    return url;
+  };
+  
+  const getDashboardUrl = () => {
+    const url = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+    console.log('🔄 Dashboard URL:', url);
+    return url;
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    const dashboardUrl = `${getDashboardUrl()}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    
+    console.log('🔄 Redirecting to:', dashboardUrl);
     
     setTimeout(() => {
       window.location.href = dashboardUrl;
@@ -36,6 +52,10 @@ const SignUp = () => {
     }
     if (!email.trim()) {
       toast.error("Email is required");
+      return false;
+    }
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
       return false;
     }
     if (password.length < 6) {
@@ -53,11 +73,15 @@ const SignUp = () => {
     setIsLoading(true);
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/auth/register`, {
+      console.log('🔄 Making signup request to:', `${getAPIUrl()}/api/auth/register`);
+      
+      const res = await axios.post(`${getAPIUrl()}/api/auth/register`, {
         email: email.trim(),
         password,
         name: name.trim(),
       });
+
+      console.log('✅ Signup successful:', res.data);
 
       const { token, user } = res.data;
 
@@ -70,10 +94,18 @@ const SignUp = () => {
       toast.success(`Welcome ${user.name}! Account created successfully!`);
 
       redirectToDashboard(token, user);
+      
     } catch (err) {
-      console.error("Registration error:", err);
-      const errorMessage = err.response?.data?.message || "Registration failed";
-      toast.error(errorMessage);
+      console.error("❌ Registration error:", err.response || err);
+      
+      if (err.code === 'ERR_NETWORK' || err.message.includes('ERR_CONNECTION_REFUSED')) {
+        toast.error("Connection failed. Please check if the server is running.");
+      } else if (err.response?.status === 409) {
+        toast.error("Email already exists. Please use a different email or try logging in.");
+      } else {
+        const errorMessage = err.response?.data?.message || "Registration failed";
+        toast.error(errorMessage);
+      }
 
       if (err.response?.data?.suggestion === "google_login") {
         setTimeout(() => {
@@ -87,11 +119,16 @@ const SignUp = () => {
 
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
+      console.log('🔄 Google signup initiated');
       const token = credentialResponse.credential;
 
-      const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
+      console.log('🔄 Making Google auth request to:', `${getAPIUrl()}/api/auth/google`);
+
+      const res = await axios.post(`${getAPIUrl()}/api/auth/google`, {
         token,
       });
+
+      console.log('✅ Google signup successful:', res.data);
 
       const { token: authToken, user } = res.data;
 
@@ -104,9 +141,15 @@ const SignUp = () => {
       toast.success(`Welcome ${user.name}!`);
 
       redirectToDashboard(authToken, user);
+      
     } catch (err) {
-      console.error("Google signup error:", err);
-      toast.error(err.response?.data?.message || "Google signup failed");
+      console.error("❌ Google signup error:", err.response || err);
+      
+      if (err.code === 'ERR_NETWORK' || err.message.includes('ERR_CONNECTION_REFUSED')) {
+        toast.error("Connection failed. Please check if the server is running.");
+      } else {
+        toast.error(err.response?.data?.message || "Google signup failed");
+      }
     }
   };
 
@@ -139,6 +182,7 @@ const SignUp = () => {
                 required
                 placeholder="Enter your name"
                 disabled={isLoading}
+                autoComplete="name"
               />
             </div>
           </div>
@@ -154,6 +198,7 @@ const SignUp = () => {
                 required
                 placeholder="Enter your email"
                 disabled={isLoading}
+                autoComplete="email"
               />
             </div>
           </div>
@@ -169,12 +214,14 @@ const SignUp = () => {
                 required
                 placeholder="Enter your password (min 6 characters)"
                 disabled={isLoading}
+                autoComplete="new-password"
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 <i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`}></i>
               </button>
@@ -221,6 +268,7 @@ const SignUp = () => {
             size="large"
             width="100%"
             text="signup_with"
+            use_fedcm_for_prompt={true}
           />
         </div>
 

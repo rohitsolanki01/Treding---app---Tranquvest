@@ -17,6 +17,7 @@ const Login = () => {
   // ✅ CRITICAL FIX: Create a function to get URLs dynamically
   const getAPIUrl = () => import.meta.env.VITE_API_URL || "http://localhost:8080";
   const getDashboardUrl = () => import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
+  
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
