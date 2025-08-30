@@ -6,27 +6,36 @@ import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../contexts/AuthContext";
 import "./Login.css";
 
+// ✅ Dynamic API base URL (local vs production)
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+// ✅ Dynamic Dashboard URL (local vs production)
+const DASHBOARD_URL =
+  import.meta.env.MODE === "development"
+    ? "http://localhost:5174/dashboard"
+    : "https://your-frontend-domain.com/dashboard"; // change this to your Render frontend domain
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const { login } = useAuth();
 
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
-    
+    const url = `${DASHBOARD_URL}?token=${encodedToken}&user=${encodedUser}`;
+
     setTimeout(() => {
-      window.location.href = dashboardUrl;
+      window.location.href = url;
     }, 1500);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!email || !password) {
       toast.error("Please fill in all fields");
       return;
@@ -34,13 +43,13 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post(`${API_BASE_URL}/auth/login`, {
         email,
         password,
       });
 
       const { token, user } = res.data;
-      
+
       if (!token || !user) {
         toast.error("Invalid server response");
         return;
@@ -48,13 +57,13 @@ const Login = () => {
 
       login(user, token);
       toast.success(`Welcome back, ${user.name}!`);
-      
+
       redirectToDashboard(token, user);
     } catch (err) {
       console.error("Login error:", err);
       const errorMessage = err.response?.data?.message || "Login failed";
       toast.error(errorMessage);
-      
+
       if (err.response?.data?.suggestion === "google_login") {
         setTimeout(() => {
           toast.info("💡 Try logging in with Google instead");
@@ -68,8 +77,8 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-      
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+
+      const res = await axios.post(`${API_BASE_URL}/auth/google`, {
         token,
       });
 
@@ -141,7 +150,11 @@ const Login = () => {
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
               >
-                <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                <i
+                  className={`fas ${
+                    showPassword ? "fa-eye-slash" : "fa-eye"
+                  }`}
+                ></i>
               </button>
             </div>
           </div>
@@ -154,9 +167,9 @@ const Login = () => {
             </label>
           </div>
 
-          <button 
-            type="submit" 
-            className={`btn-login ${isLoading ? 'loading' : ''}`}
+          <button
+            type="submit"
+            className={`btn-login ${isLoading ? "loading" : ""}`}
             disabled={isLoading}
           >
             {isLoading ? (
@@ -197,8 +210,8 @@ const Login = () => {
         </div>
       </div>
 
-      <ToastContainer 
-        position="top-right" 
+      <ToastContainer
+        position="top-right"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
