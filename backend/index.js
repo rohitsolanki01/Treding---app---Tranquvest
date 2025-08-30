@@ -30,10 +30,7 @@ app.use(cors({
 
 // Dashboard routes first
 // Dashboard routes
-app.use("/dashboard", express.static(path.join(__dirname, "dashboard/dist")));
-app.get("/dashboard/", (req, res) => {
-  res.sendFile(path.join(__dirname, "dashboard/dist/index.html"));
-});
+
 
 
 // ----------------- Frontend (Vite dist) -----------------
@@ -42,6 +39,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
+
+app.use("/dashboard", express.static(path.join(__dirname, "dashboard/dist")));
+app.get("/dashboard/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dashboard/dist/index.html"));
+});
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
 
