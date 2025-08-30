@@ -29,15 +29,16 @@ app.use(cors({
 }));
 
 
-app.use(express.static(path.join(dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend/build")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(dirname, "frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
-app.use("/dashboard", express.static(path.join(dirname, "dashboard/build")));
+app.use("/dashboard", express.static(path.join(__dirname, "dashboard/build")));
 app.get("/dashboard/*", (req, res) => {
-  res.sendFile(path.join(dirname, "dashboard/build/index.html"));
+  res.sendFile(path.join(__dirname, "dashboard/build/index.html"));
 });
+
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
 
