@@ -28,6 +28,9 @@ app.use(cors({
 }));
 
 
+app.use(express.static("frontend/dist"));
+app.use(express.static("dashboard/dist"));
+
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
 
