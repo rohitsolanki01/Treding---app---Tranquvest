@@ -28,16 +28,19 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Dashboard routes first
+app.use("/dashboard", express.static(path.join(__dirname, "dashboard/build")));
+app.get("/dashboard/", (req, res) => {
+  res.sendFile(path.join(__dirname, "dashboard/build/index.html"));
+});
 
+// Frontend routes last
 app.use(express.static(path.join(__dirname, "frontend/build")));
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
-app.use("/dashboard", express.static(path.join(__dirname, "dashboard/build")));
-app.get("/dashboard/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dashboard/build/index.html"));
-});
+
 
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
