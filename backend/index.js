@@ -44,6 +44,13 @@ app.use("/dashboard", express.static(path.join(__dirname, "dashboard/dist")));
 app.get("/dashboard/", (req, res) => {
   res.sendFile(path.join(__dirname, "dashboard/dist/index.html"));
 });
+
+
+app.use((err, req, res, next) => {
+  console.error("🔥 ERROR:", err.stack);
+  res.status(500).json({ message: "Something went wrong!", error: err.message });
+});
+
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
 
