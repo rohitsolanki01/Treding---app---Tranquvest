@@ -40,9 +40,9 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/dashboard", express.static(path.join(__dirname, "dashboard/dist")));
+app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/dist")));
 app.get("/dashboard/", (req, res) => {
-  res.sendFile(path.join(__dirname, "dashboard/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../dashboard/dist/index.html"));
 });
 
 
