@@ -29,15 +29,16 @@ app.use(cors({
 }));
 
 // Dashboard routes first
-app.use("/dashboard", express.static(path.join(__dirname, "dashboard/build")));
-app.get("/dashboard/", (req, res) => {
-  res.sendFile(path.join(__dirname, "dashboard/build/index.html"));
+// Dashboard routes
+app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/build")));
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dashboard/build/index.html"));
 });
 
-// Frontend routes last
-app.use(express.static(path.join(__dirname, "frontend/build")));
+// Frontend routes
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/build/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
 
