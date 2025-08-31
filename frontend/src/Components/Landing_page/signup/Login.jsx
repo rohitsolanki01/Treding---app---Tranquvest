@@ -34,7 +34,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post("https://treding-app-tranquvest-5.onrender.com/api/auth/google", {
         email,
         password,
       });
@@ -68,8 +68,8 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-      
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+
+      const res = await axios.post("https://treding-app-tranquvest-5.onrender.com/api/auth/google", {
         token,
       });
 
