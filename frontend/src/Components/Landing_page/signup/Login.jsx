@@ -19,8 +19,8 @@ const Login = () => {
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
-    
+    const dashboardUrl = `${import.meta.env.VITE_DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+
     setTimeout(() => {
       window.location.href = dashboardUrl;
     }, 1500);
@@ -36,7 +36,7 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -70,8 +70,8 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const token = credentialResponse.credential;
-      
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/google`, {
         token,
       });
 
