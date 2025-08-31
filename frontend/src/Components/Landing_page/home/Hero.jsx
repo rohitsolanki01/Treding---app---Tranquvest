@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="container-fluid py-5">
       <div className="row justify-content-center align-items-center text-center">
@@ -18,9 +21,9 @@ const Hero = () => {
             Trade stocks, options, mutual funds, ETFs, and more — with a seamless online experience.
           </p>
 
-          <button className="button border-0 " onClick={() => window.location.href = "https://treding-app-tranquvest-5.onrender.com/signup"}>
-            Sign Up Now
-          </button>
+            <button className="button border-0" onClick={() => navigate("/signup")}>
+      Sign Up Now
+    </button>
         </div>
       </div>
     </div>

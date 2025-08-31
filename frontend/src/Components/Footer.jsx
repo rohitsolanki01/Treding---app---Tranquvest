@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -28,10 +29,10 @@ const Footer = () => {
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="fw-semibold mb-3">Company</h6>
             <ul className="list-unstyled">
-              <li><a href="/https://treding-app-tranquvest-5.onrender.com/about" className="text-muted d-block mb-2">About Us</a></li>
-              <li><a href="/product" className="text-muted d-block mb-2">Product</a></li>
-              <li><a href="/pricing" className="text-muted d-block mb-2">Pricing</a></li>
-              <li><a href="/blogs" className="text-muted d-block mb-2">Tranquvest.tech-blogs</a></li>
+              <li><Link to="/about" className="text-muted d-block mb-2">About Us</Link></li>
+              <li><Link to="/product" className="text-muted d-block mb-2">Product</Link></li>
+              <li><Link to="/pricing" className="text-muted d-block mb-2">Pricing</Link></li>
+              <li><Link to="/blogs" className="text-muted d-block mb-2">Tranquvest.tech-blogs</Link></li>
             </ul>
           </div>
 
@@ -39,8 +40,8 @@ const Footer = () => {
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="fw-semibold mb-3">Support</h6>
             <ul className="list-unstyled">
-              <li><a href="/support" className="text-muted d-block mb-2">Support Center</a></li>
-              <li><a href="/pricing" className="text-muted d-block">List of Charges</a></li>
+              <li><Link to="/support" className="text-muted d-block mb-2">Support Center</Link></li>
+              <li><Link to="/pricing" className="text-muted d-block">List of Charges</Link></li>
             </ul>
           </div>
 
@@ -48,17 +49,17 @@ const Footer = () => {
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="fw-semibold mb-3">Account</h6>
             <ul className="list-unstyled">
-              <li><a href="/signup" className="text-muted d-block mb-2">Open an Account</a></li>
-              <li><a href="/founds" className="text-muted d-block mb-2">Fund Transfer</a></li>
+              <li><Link to="/signup" className="text-muted d-block mb-2">Open an Account</Link></li>
+              <li><Link to="/founds" className="text-muted d-block mb-2">Fund Transfer</Link></li>
             </ul>
           </div>
 
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="fw-semibold mb-3">Legal</h6>
             <ul className="list-unstyled">
-              <li><a href="/term-condition" className="text-muted d-block mb-2">Terms & Conditions</a></li>
-              <li><a href="/policy" className="text-muted d-block mb-2">Privacy Policy</a></li>
-              <li><a href="/disclaimer" className="text-muted d-block">Disclaimer</a></li>
+              <li><Link to="/term-condition" className="text-muted d-block mb-2">Terms & Conditions</Link></li>
+              <li><Link to="/policy" className="text-muted d-block mb-2">Privacy Policy</Link></li>
+              <li><Link to="/disclaimer" className="text-muted d-block">Disclaimer</Link></li>
             </ul>
           </div>
 
