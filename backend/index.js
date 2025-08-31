@@ -22,7 +22,7 @@ const nodemailer = require("nodemailer");
 // Middleware
 // Make sure your CORS is configured properly
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "https://tranquvest-app.onrender.com", "https://tranquvest-dashboard.onrender.com"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "https://treding-app-tranquvest-5.onrender.com"],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
