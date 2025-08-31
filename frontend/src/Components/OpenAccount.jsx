@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
+import SignUp from './Landing_page/signup/SignUp';
 
 const OpenAccount = () => {
     const navigate = useNavigate();
