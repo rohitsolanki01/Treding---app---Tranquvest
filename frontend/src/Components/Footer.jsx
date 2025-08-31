@@ -26,15 +26,16 @@ const Footer = () => {
           </div>
 
       
-          <div className="col-6 col-md-3 col-lg-2">
-            <h6 className="fw-semibold mb-3">Company</h6>
-            <ul className="list-unstyled">
-              <li><Link href="/about" className="text-muted d-block mb-2">About Us</Link></li>
-              <li><Link href="/product" className="text-muted d-block mb-2">Product</Link></li>
-              <li><Link href="/pricing" className="text-muted d-block mb-2">Pricing</Link></li>
-              <li><Link href="/blogs" className="text-muted d-block mb-2">Tranquvest.tech-blogs</Link></li>
-            </ul>
-          </div>
+  <div className="col-6 col-md-3 col-lg-2">
+  <h6 className="fw-semibold mb-3">Company</h6>
+  <ul className="list-unstyled">
+    <li><Link to="/about" className="text-muted d-block mb-2">About Us</Link></li>
+    <li><Link to="/product" className="text-muted d-block mb-2">Product</Link></li>
+    <li><Link to="/pricing" className="text-muted d-block mb-2">Pricing</Link></li>
+    <li><Link to="/blogs" className="text-muted d-block mb-2">Tranquvest.tech-blogs</Link></li>
+  </ul>
+</div>
+
 
       
           <div className="col-6 col-md-3 col-lg-2">
