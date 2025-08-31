@@ -363,15 +363,7 @@ function getDummyQuote(symbol) {
 }
 
 app.use('/api', orderRoutes);
-
-
-app.get("/" , (req,res) => {
-    res.send("Server is deployed well 🚀")
-})
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/dist", "index.html"));
-});
+app.use(express.static(path.join(__dirname, "../frontend/dist/index.html")));
 
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
