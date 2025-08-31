@@ -23,8 +23,9 @@ createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId="421864464984-611fn7f9a8vmoqpevfncba4chml6h1e5.apps.googleusercontent.com">
     <BrowserRouter>
       <AuthProvider> {/* Wrap everything with AuthProvider */}
-        <Navbar />
+       
         <Routes>
+           <Navbar />
           <Route path="/" element={<App />} />
           <Route path="pricing" element={<PricingWrapper />} />
           <Route path='signup' element={<SignUp />}/>
@@ -38,8 +39,9 @@ createRoot(document.getElementById('root')).render(
           <Route path='policy' element={<PrivacyPolicy />}/>
           <Route path='*' element={<PageNotFound />}/>
           <Route path='disclaimer' element={<Disclaimer />}/>
+            <Footer />
         </Routes>
-        <Footer />
+      
       </AuthProvider> {/* Close AuthProvider */}
     </BrowserRouter> 
   </GoogleOAuthProvider>
