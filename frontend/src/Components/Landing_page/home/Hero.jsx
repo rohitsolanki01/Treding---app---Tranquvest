@@ -18,7 +18,7 @@ const Hero = () => {
             Trade stocks, options, mutual funds, ETFs, and more — with a seamless online experience.
           </p>
 
-          <button className="button border-0 " onClick={() => window.location.href = "https://tranquvest-app.onrender.com/signup"}>
+          <button className="button border-0 " onClick={() => window.location.href = "https://treding-app-tranquvest-5.onrender.com/signup"}>
             Sign Up Now
           </button>
         </div>

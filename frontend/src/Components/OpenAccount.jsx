@@ -14,7 +14,7 @@ const OpenAccount = () => {
             Open a free demate account in a minute and start trading stocks, options, mutual funds, and more.
           </p>
 
-         <button className="button border-0 " onClick={() => window.location.href = "https://tranquvest-app.onrender.com/signup"}>
+         <button className="button border-0 " onClick={() => window.location.href = "https://treding-app-tranquvest-5.onrender.com/signup"}>
             Open Account
           </button>
         </div>
