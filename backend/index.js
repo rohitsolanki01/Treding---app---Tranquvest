@@ -51,6 +51,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong!", error: err.message });
 });
 
+
+
 // Add this after your CORS configuration
 app.use('/uploads', express.static('uploads'));
 
@@ -366,6 +368,10 @@ app.use('/api', orderRoutes);
 app.get("/" , (req,res) => {
     res.send("Server is deployed well 🚀")
 })
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend/dist", "index.html"));
+});
 
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on port ${PORT}`);
