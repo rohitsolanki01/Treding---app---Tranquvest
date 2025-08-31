@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 const OpenAccount = () => {
+    const navigate = useNavigate();
   return (
    <>
    <div className="container-fluid py-1">
@@ -14,9 +16,9 @@ const OpenAccount = () => {
             Open a free demate account in a minute and start trading stocks, options, mutual funds, and more.
           </p>
 
-         <button className="button border-0 " onClick={() => window.location.href = "https://treding-app-tranquvest-5.onrender.com/signup"}>
-            Open Account
-          </button>
+           <button className="button border-0" onClick={() => navigate("/signup")}>
+      Open Account
+    </button>
         </div>
       </div>
     </div>
