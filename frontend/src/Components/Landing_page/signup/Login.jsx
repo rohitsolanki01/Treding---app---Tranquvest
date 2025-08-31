@@ -5,8 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { GoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../contexts/AuthContext";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -190,7 +192,7 @@ const Login = () => {
         <div className="login-footer">
           <p>
             Don't have an account?{" "}
-            <a href="/signup" className="signup-link">
+            <a  onClick={() => navigate("/signup")} className="signup-link">
               Create account
             </a>
           </p>
