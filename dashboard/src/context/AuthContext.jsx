@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
     delete axios.defaults.headers.common['Authorization'];
     
-    window.location.href = 'https://treding-app-tranquvest-5.onrender.com/login';
+    window.location.href = 'https://treding-app-tranquvest-5.onrender.com/';
   };
 
   const updateUser = (updatedUserData) => {
