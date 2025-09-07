@@ -16,10 +16,14 @@ const Login = () => {
   
   const { login } = useAuth();
 
+  // ✅ Vite environment variables syntax
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL;
+
   const redirectToDashboard = (token, user) => {
     const encodedToken = encodeURIComponent(token);
     const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `http://localhost:5174/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
     
     setTimeout(() => {
       window.location.href = dashboardUrl;
@@ -36,9 +40,14 @@ const Login = () => {
 
     setIsLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/login", {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
       });
 
       const { token, user } = res.data;
@@ -71,8 +80,13 @@ const Login = () => {
     try {
       const token = credentialResponse.credential;
       
-      const res = await axios.post("http://localhost:8080/api/auth/google", {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
         token,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
       });
 
       const { token: authToken, user } = res.data;

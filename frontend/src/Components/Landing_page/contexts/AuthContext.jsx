@@ -16,6 +16,9 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // ✅ Vite environment variable syntax
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     const initializeAuth = () => {
       try {
@@ -27,6 +30,8 @@ export const AuthProvider = ({ children }) => {
           setToken(storedToken);
           setUser(parsedUser);
           
+          // ✅ Configure axios with Vite env variables
+          axios.defaults.baseURL = API_BASE_URL;
           axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
         }
       } catch (error) {
@@ -38,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     initializeAuth();
-  }, []);
+  }, [API_BASE_URL]);
 
   const login = (userData, authToken) => {
     setUser(userData);
