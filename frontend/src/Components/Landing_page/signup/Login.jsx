@@ -71,7 +71,7 @@ const Login = () => {
       console.log("Attempting login to:", `${API_BASE_URL}/login`);
       
       // Updated endpoint - removed /api/auth prefix to match Railway backend
-      const res = await axios.post(`${API_BASE_URL}/login`, {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email: email.trim(),
         password,
       }, {
@@ -135,7 +135,7 @@ const Login = () => {
     try {
       const token = credentialResponse.credential;
       
-      console.log("Attempting Google login to:", `${API_BASE_URL}/auth/google`);
+      console.log("Attempting Google login to:", `${API_BASE_URL}/api/auth/google`);
       
       // Updated endpoint - matches Railway backend
       const res = await axios.post(`${API_BASE_URL}/auth/google`, {
