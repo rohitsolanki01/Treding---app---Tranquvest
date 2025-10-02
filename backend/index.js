@@ -31,21 +31,6 @@ app.use(cors({
 // Dashboard routes first
 // Dashboard routes
 
-
-
-// ----------------- Frontend (Vite dist) -----------------
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
-
-app.use("/dashboard", express.static(path.join(__dirname, "../dashboard/dist")));
-app.get("/dashboard/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dashboard/dist/index.html"));
-});
-
-
 app.use((err, req, res, next) => {
   console.error("🔥 ERROR:", err.stack);
   res.status(500).json({ message: "Something went wrong!", error: err.message });
@@ -74,6 +59,10 @@ main()
         process.exit(1);
     });
 
+
+app.get("",(req,res) => {
+    res.send("server is running well")
+})      
 // Auth routes
 app.use("/api/auth", authRoutes);
 
