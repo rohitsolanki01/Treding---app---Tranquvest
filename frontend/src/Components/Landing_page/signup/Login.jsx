@@ -16,32 +16,63 @@ const Login = () => {
   
   const { login } = useAuth();
 
-  // ✅ Vite environment variables syntax
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL;
+  // ✅ Vite environment variables - Make sure these are set in .env file
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
+  const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
 
+  // Enhanced redirect with better error handling
   const redirectToDashboard = (token, user) => {
-    const encodedToken = encodeURIComponent(token);
-    const encodedUser = encodeURIComponent(JSON.stringify(user));
-    const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+    try {
+      const encodedToken = encodeURIComponent(token);
+      const encodedUser = encodeURIComponent(JSON.stringify(user));
+      const dashboardUrl = `${DASHBOARD_URL}/dashboard?token=${encodedToken}&user=${encodedUser}`;
+      
+      console.log("Redirecting to:", dashboardUrl);
+      
+      setTimeout(() => {
+        window.location.href = dashboardUrl;
+      }, 1500);
+    } catch (error) {
+      console.error("Redirect error:", error);
+      toast.error("Navigation failed. Please try again.");
+    }
+  };
+
+  // Form validation
+  const validateForm = () => {
+    if (!email || !password) {
+      toast.error("Please fill in all fields");
+      return false;
+    }
     
-    setTimeout(() => {
-      window.location.href = dashboardUrl;
-    }, 1500);
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return false;
+    }
+    
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return false;
+    }
+    
+    return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!email || !password) {
-      toast.error("Please fill in all fields");
+    if (!validateForm()) {
       return;
     }
 
     setIsLoading(true);
+    
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
-        email,
+      console.log("Attempting login to:", `${API_BASE_URL}/login`);
+      
+      // Updated endpoint - removed /api/auth prefix to match Railway backend
+      const res = await axios.post(`${API_BASE_URL}/login`, {
+        email: email.trim(),
         password,
       }, {
         headers: {
@@ -50,6 +81,8 @@ const Login = () => {
         withCredentials: true,
       });
 
+      console.log("Login response:", res.data);
+
       const { token, user } = res.data;
       
       if (!token || !user) {
@@ -57,15 +90,35 @@ const Login = () => {
         return;
       }
 
+      // Store in context and localStorage
       login(user, token);
-      toast.success(`Welcome back, ${user.name}!`);
+      toast.success(`✅ Welcome back, ${user.name}!`);
       
+      // Redirect to dashboard
       redirectToDashboard(token, user);
+      
     } catch (err) {
       console.error("Login error:", err);
-      const errorMessage = err.response?.data?.message || "Login failed";
+      
+      let errorMessage = "Login failed. Please try again.";
+      
+      if (err.response) {
+        // Server responded with error
+        errorMessage = err.response.data?.message || errorMessage;
+        
+        if (err.response.status === 401) {
+          errorMessage = "Invalid email or password";
+        } else if (err.response.status === 404) {
+          errorMessage = "Account not found. Please sign up first.";
+        }
+      } else if (err.request) {
+        // Request made but no response
+        errorMessage = "Cannot connect to server. Please check your connection.";
+      }
+      
       toast.error(errorMessage);
       
+      // Suggest Google login if applicable
       if (err.response?.data?.suggestion === "google_login") {
         setTimeout(() => {
           toast.info("💡 Try logging in with Google instead");
@@ -77,10 +130,15 @@ const Login = () => {
   };
 
   const handleGoogleSuccess = async (credentialResponse) => {
+    setIsLoading(true);
+    
     try {
       const token = credentialResponse.credential;
       
-      const res = await axios.post(`${API_BASE_URL}/api/auth/google`, {
+      console.log("Attempting Google login to:", `${API_BASE_URL}/auth/google`);
+      
+      // Updated endpoint - matches Railway backend
+      const res = await axios.post(`${API_BASE_URL}/auth/google`, {
         token,
       }, {
         headers: {
@@ -89,6 +147,8 @@ const Login = () => {
         withCredentials: true,
       });
 
+      console.log("Google login response:", res.data);
+
       const { token: authToken, user } = res.data;
 
       if (!authToken || !user) {
@@ -96,14 +156,33 @@ const Login = () => {
         return;
       }
 
+      // Store in context and localStorage
       login(user, authToken);
-      toast.success(`Welcome ${user.name}!`);
+      toast.success(`✅ Welcome ${user.name}!`);
 
+      // Redirect to dashboard
       redirectToDashboard(authToken, user);
+      
     } catch (err) {
       console.error("Google login error:", err);
-      toast.error(err.response?.data?.message || "Google login failed");
+      
+      let errorMessage = "Google login failed. Please try again.";
+      
+      if (err.response) {
+        errorMessage = err.response.data?.message || errorMessage;
+      } else if (err.request) {
+        errorMessage = "Cannot connect to server. Please check your connection.";
+      }
+      
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
     }
+  };
+
+  const handleGoogleError = () => {
+    console.error("Google login cancelled or failed");
+    toast.error("❌ Google login was cancelled");
   };
 
   return (
@@ -135,6 +214,7 @@ const Login = () => {
                 required
                 placeholder="Enter your email"
                 disabled={isLoading}
+                autoComplete="email"
               />
             </div>
           </div>
@@ -150,12 +230,14 @@ const Login = () => {
                 required
                 placeholder="Enter your password"
                 disabled={isLoading}
+                autoComplete="current-password"
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={() => setShowPassword(!showPassword)}
                 disabled={isLoading}
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
               </button>
@@ -196,10 +278,12 @@ const Login = () => {
         <div className="google-login-wrapper">
           <GoogleLogin
             onSuccess={handleGoogleSuccess}
-            onError={() => toast.error("Google Login Failed")}
+            onError={handleGoogleError}
             theme="outline"
             size="large"
             width="100%"
+            text="continue_with"
+            useOneTap
           />
         </div>
 
